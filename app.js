@@ -11,7 +11,8 @@ var express = require('express'),
   	app = express(),
   	url_pattern = new RegExp("((http|https)(:\/\/))?([a-zA-Z0-9]+[.]{1}){2}[a-zA-z0-9]+(\/{1}[a-zA-Z0-9]+)*\/?", "i"),
   	mongoose  =require('mongoose'),
-  	db = mongoose.connect('mongodb://localhost/short'),
+	uristring = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/HelloMongoose';
+  	db = mongoose.connect(uristring),
    	Schema =  mongoose.Schema;
 
 var smallLinks = new Schema({

@@ -51,7 +51,6 @@ a {
   margin-bottom: 40px;
 }
 #source {
-  width: 98%;
   text-align: center;
   height: auto;
   line-height: auto; 
@@ -105,8 +104,16 @@ h1 {
 table.table-condensed {
   width: 80%;
  position: relative;
-
 }
+
+.btn-xlarge {
+    padding: 18px 96px;
+    font-size: 26px;
+    line-height: normal;
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 8px;
+            border-radius: 8px;
+    }
 
 /* Custom page CSS
 -------------------------------------------------- */

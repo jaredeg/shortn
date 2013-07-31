@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies.
  */
@@ -6,9 +5,9 @@ var express = require('express'),
     routes = require('./routes'),
     user = require('./routes/user'),
     http = require('http'),
-    shortId = require('shortId'),
+    shortId = require('shortid'),
     app = express(),
-	url_pattern = new RegExp("((http|https)(:\/\/))?([a-zA-Z0-9]+[.]{1}){2}[a-zA-z0-9]+(\/{1}[a-zA-Z0-9]+)*\/?", "i"),
+    url_pattern = new RegExp("((http|https)(:\/\/))?([a-zA-Z0-9]+[.]{1}){2}[a-zA-z0-9]+(\/{1}[a-zA-Z0-9]+)*\/?", "i"),
  	mongoose  =require('mongoose'),
  	db = mongoose.connect('mongodb://localhost/short'),
  	Schema =  mongoose.Schema;

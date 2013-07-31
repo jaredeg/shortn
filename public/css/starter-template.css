@@ -25,7 +25,8 @@ body,
 span,
 input,
 a {
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans';
+
 }
 
 a {
@@ -36,6 +37,7 @@ a {
 #url {
   text-align: center;
   position: relative;
+  width: 80%;
 }
 
 #url input {
@@ -47,6 +49,13 @@ a {
   border-radius: 5px;
   -webkit-border-radius: 10px;
   margin-bottom: 40px;
+}
+#source {
+  width: 98%;
+  text-align: center;
+  height: auto;
+  line-height: auto; 
+  font-size: 32px;
 }
 
 input:focus {
@@ -89,13 +98,14 @@ h1 {
   font-size: 70px;
   font-family: ff-cocon-web-pro, sans-serif;
   font-weight: 400;
-  margin-left: auto;
-  margin-right: auto;
+  text-align: center;
 
 }
 
 table.table-condensed {
   width: 80%;
+ position: relative;
+
 }
 
 /* Custom page CSS

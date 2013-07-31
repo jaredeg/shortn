@@ -9,7 +9,7 @@ var express = require('express'),
 	path = require('path'),
   	shortId = require('shortid'),
   	app = express(),
-  
+  	domain = "http://jeg.herokuapp.com/",
   	mongoose  =require('mongoose'),
 	uristring = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/short';
   	db = mongoose.connect(uristring),
@@ -72,12 +72,19 @@ app.get('/top', function (req,res){
 	);
 });
 
+function isUrl(s) {
+	var regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
+	return regexp.test(s);
+}
+
+
 app.get('/shorten', function(req, res) {
 	console.log('Shortening url...');
 	var url = req.param('url');	
 	//Checks url for http or not
-	 if (!validUrl.isUri(suspect)){
-        req.send(req);
+	 if (!isUrl(url)){
+        res.send(url);
+        console.log('notworking');
     } 
     
 
@@ -95,10 +102,10 @@ app.get('/shorten', function(req, res) {
 	     	 res.send('there was an error');
 			} else{
 	  		 console.log("Saving new entry");
-	     	 res.send(id);
+	     	 res.send(domain+id);
 	  		}});
       } else {
-         res.send(data.id);
+         res.send(domain+data.id);
       	}
 	});
 });

@@ -8,10 +8,9 @@ $(function() {
                        data: { url: $('#source').val() },
                        type: 'GET',
                        success: function(data) { 
-                               $('#source').val('http://jeg.herokuapp.com/' + data);
+                               $('#source').val(data);
                                 //$('button').removeClass("hide");
-                                $('#sub').hide();
-                                                     }
+                       }
                })
        }
 

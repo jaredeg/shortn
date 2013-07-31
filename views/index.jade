@@ -3,8 +3,9 @@ extends ./layout
 block content
       p
       .template
-      .form-group
+      .form-group.col-lg-8
          input.form-control(id='source', type='text', name ='url')
       p.link
-       #sub.button.btn.btn-default(type='button') Submit
+       #sub.button.btn.btn-primary.btn-large(type='button') Shortn
        button.hide.btn.btn-default(type='hidden') Copy
+      p.info Requires a valid url with http:// https:// or ftp://

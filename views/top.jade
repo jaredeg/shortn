@@ -2,6 +2,11 @@ extends ./layout
 
 block content
 
-      h1 top ten links
+      h2 top ten links
       .template
-       #{urls}
+       each item in urls
+        p #{item.url} #{item.count}
+
+
+
+

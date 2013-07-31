@@ -76,7 +76,6 @@ input:focus {
   font-weight: 300;
 }
 
-/* Lastly, apply responsive CSS fixes as necessary */
 @media (max-width: 767px) {
   #footer {
     margin-left: -20px;
@@ -86,7 +85,14 @@ input:focus {
   }
 }
 
-
+h1 {
+  font-size: 70px;
+  font-family: ff-cocon-web-pro, sans-serif;
+  font-weight: 400;
+      margin-left: auto;
+    margin-right: auto;
+    width 70%;
+}
 
 /* Custom page CSS
 -------------------------------------------------- */

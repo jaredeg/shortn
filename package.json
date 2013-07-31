@@ -11,7 +11,8 @@
     "mongoose": "*",
     "shortid" : "*",
     "less-middleware" : "*",
-    "markdown" : "*"
+    "markdown" : "*",
+    "valid-url" : "*"
   },
   "devDependencies": {
     "nodemon" : "*"

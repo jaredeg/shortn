@@ -9,10 +9,11 @@ var express = require('express'),
 	path = require('path'),
   	shortId = require('shortid'),
   	app = express(),
-  	url_pattern = new RegExp("((http|https)(:\/\/))?([a-zA-Z0-9]+[.]{1}){2}[a-zA-z0-9]+(\/{1}[a-zA-Z0-9]+)*\/?", "i"),
+  
   	mongoose  =require('mongoose'),
 	uristring = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/short';
   	db = mongoose.connect(uristring),
+  	valid = require ('valid-url'),
    	Schema =  mongoose.Schema;
 
 var smallLinks = new Schema({
@@ -58,7 +59,7 @@ app.get('/about', function(req, res) {
 });
 
 app.get('/top', function (req,res){
-	Small.find().sort({count: -1}).select({url: 1, count: 1}).limit(10).exec(
+	Small.find().sort({count: -1}).select({url: 1, count: 1, id: 1}).limit(10).exec(
     	function(err, urls) {
         	if (err || urls === null){
         		console.log("Could not find");
@@ -75,9 +76,10 @@ app.get('/shorten', function(req, res) {
 	console.log('Shortening url...');
 	var url = req.param('url');	
 	//Checks url for http or not
-	if (url_pattern.exec(url) === null) {
-		url = "http://" + url;
-	}
+	 if (!validUrl.isUri(suspect)){
+        req.send(req);
+    } 
+    
 
 	var id = shortId.generate();
 

@@ -9,7 +9,8 @@ $(function() {
                        type: 'GET',
                        success: function(data) { 
                                $('#source').val('http://jeg.herokuapp.com/' + data);
-                               $('button').removeClass("hide")
+                                $('button').removeClass("hide");
+                                $('#sub').hide();
                                                      }
                })
        }
@@ -20,8 +21,11 @@ $(function() {
                     shorten();
                }
        });
+       $('#sub').on('click', function(e){
+                   $('#short').hide();
+                    shorten();
 
-});
+       });
 
 
 });

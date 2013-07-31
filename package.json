@@ -10,7 +10,7 @@
     "jade": "*",
     "mongoose": "*",
     "shortid" : "*",
-    "less-middleweare" : "*"
+    "less-middleware" : "*"
   },
   "devDependencies": {
     "nodemon" : "*"

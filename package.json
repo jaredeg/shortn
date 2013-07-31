@@ -1,15 +1,14 @@
 {
   "name": "shortn",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "private": true,
   "scripts": {
-    "start": "nodemon app.js"
-  },
+    "start": "node app.js",
   "dependencies": {
     "express": "3.3.4",
     "jade": "*",
-    "less-middleware": "*",
-    "mongoose": "*"
+    "mongoose": "*",
+    "shortId" : "*"
   },
   "devDependencies": {
     "nodemon" : "*"

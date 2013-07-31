@@ -2,24 +2,23 @@
 /**
  * Module dependencies.
  */
-var express = require('express')
-  , routes = require('./routes')
-  , user = require('./routes/user')
-  , http = require('http')
-  , path = require('path')
-  , shortId = require('shortId')
-  , app = express()
-  , url_pattern = new RegExp("((http|https)(:\/\/))?([a-zA-Z0-9]+[.]{1}){2}[a-zA-z0-9]+(\/{1}[a-zA-Z0-9]+)*\/?", "i")
-  , mongoose  =require('mongoose')
-  , db = mongoose.connect('mongodb://localhost/short')
-  , Schema =  mongoose.Schema;
+var express = require('express'),
+    routes = require('./routes'),
+    user = require('./routes/user'),
+    http = require('http'),
+    shortId = require('shortId'),
+    app = express(),
+	url_pattern = new RegExp("((http|https)(:\/\/))?([a-zA-Z0-9]+[.]{1}){2}[a-zA-z0-9]+(\/{1}[a-zA-Z0-9]+)*\/?", "i"),
+ 	mongoose  =require('mongoose'),
+ 	db = mongoose.connect('mongodb://localhost/short'),
+ 	Schema =  mongoose.Schema;
 
 var smallLinks = new Schema({
-  id: { type: String, index: true }
-, url: { type: String, index: true }
-, created: { type: Date, default: Date.now }
-, accessed: { type: Date, default: Date.now }
-, count: { type: Number, default: 0 }
+	id: { type: String, index: true },
+	url: { type: String, index: true },
+	created: { type: Date, default: Date.now },
+	accessed: { type: Date, default: Date.now },
+	count: { type: Number, default: 0 }
 });
 
 var Small = mongoose.model('Link', smallLinks);
@@ -35,13 +34,12 @@ app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(app.router);
-app.use(require('less-middleware')({ src: __dirname + '/public' }));
-app.use(express.static(path.join(__dirname, 'public')));
+
 
 
 // development only
 if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
+	app.use(express.errorHandler());
 }
 
 app.get("/", function(req, res){
@@ -88,18 +86,17 @@ app.get('/shorten', function(req, res) {
 });
 
 app.get('/:id', function(req, res){
-  console.log(req.params.id);
+	console.log(req.params.id);
 
-  Small.findOneAndUpdate({"id": req.params.id}, {accessed: new Date(), $inc: { count: 1 } }, function (err, data) {
-  	  if(err || data === null){
+  	Small.findOneAndUpdate({"id": req.params.id}, {accessed: new Date(), $inc: { count: 1 } }, function (err, data) {
+  		if(err || data === null){
   	  		console.log("Bad Link: " +data);
   	  		res.send(404);
       	} else {
          console.log("Redirecting to " + data);
 	     res.redirect(data.url);
       	}
-   });
-
+   	});
 });
 
 /**

@@ -1,0 +1,18 @@
+.navbar.navbar-fixed-top
+      .container
+        button.navbar-toggle(type='button', data-toggle='collapse', data-target='.nav-collapse')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a(href='#').brand #{brand}
+        .nav-collapse.collapse
+           ul.nav.navbar-nav       
+            - var obj = { '/':'Home', 'top':'Top 10', 'about':'About' }
+              - each val, key in obj
+                - if (id == key)
+                  li.active
+                    a(href='#{key}') #{val}
+                - else            
+                  li
+                    a(href='#{key}') #{val}
+    

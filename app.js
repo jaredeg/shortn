@@ -57,6 +57,19 @@ app.get('/about', function(req, res) {
 	})
 });
 
+app.get('/top', function (req,res){
+	Small.find().sort({count: -1}).select({url: 1, count: 1}).limit(10).exec(
+    	function(err, urls) {
+        	if (err || urls === null){
+        		console.log("Could not find");
+	     	 res.send('there was an error');
+        	} else {
+        		res.render('top', { urls: urls, count: urls})
+        		console.log(urls);
+        	}
+    	}
+	);
+});
 
 app.get('/shorten', function(req, res) {
 	console.log('Shortening url...');

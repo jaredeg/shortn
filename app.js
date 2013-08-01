@@ -20,7 +20,7 @@ var smallLinks = new Schema({
     url: { type: String, index: true },
     created: { type: Date, default: Date.now },
     accessed: { type: Date, default: Date.now },
-     count: { type: Number, default: 0 }
+    count: { type: Number, default: 0 }
 });
 
 var Small = mongoose.model('Link', smallLinks);
@@ -97,15 +97,15 @@ app.get('/shorten', function(req, res) {
       if(err || data === null){
         toAdd.save(function(err){
             if (err){
-             console.log('Could not save');
-             res.send('there was an error');
+                console.log('Could not save');
+                res.send('there was an error');
             } else{
-             console.log('Saving new entry');
-             res.send(domain+id);
+                console.log('Saving new entry');
+                res.send(domain+id);
             }});
       } else {
-         res.send(domain+data.id);
-        }
+        res.send(domain+data.id);
+      }
     });
 });
 
@@ -117,8 +117,8 @@ app.get('/:id', function(req, res){
             console.log('data: ' +data);
             res.send(404);
         } else {
-         console.log('redirecting ' + data);
-         res.redirect(data.url);
+            console.log('redirecting ' + data);
+            res.redirect(data.url);
         }
    });
 

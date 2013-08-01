@@ -48,6 +48,7 @@ a {
   -webkit-border-radius: 10px;
   border-radius: 5px;
   margin-bottom: 40px;
+  height: auto;
 }
 #source {
   text-align: center;
@@ -83,7 +84,7 @@ input:focus {
   font-weight: 300;
 }
 
-@media (max-width: 767px) {
+@media screen and (max-width: 768px) {
   #footer {
     margin-left: -20px;
     margin-right: -20px;
@@ -91,9 +92,12 @@ input:focus {
     padding-right: 20px;
   }
   #url input {
-    font-size: 14px;
-}
-
+    font-size: 22px;
+    height: auto;
+  }
+    .btn-xlarge {
+        padding: 16px 48px;
+    }
 }
 
 h1 {

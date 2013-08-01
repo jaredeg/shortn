@@ -12,7 +12,6 @@
     "shortid" : "*",
     "less-middleware" : "*",
     "markdown" : "*",
-    "valid-url" : "*"
   },
   "devDependencies": {
     "nodemon" : "*"

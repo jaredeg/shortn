@@ -13,7 +13,6 @@ var express = require('express'),
     mongoose  =require('mongoose'),
     uristring = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/short';
     db = mongoose.connect(uristring),
-    valid = require ('valid-url'),
     Schema =  mongoose.Schema;
 
 var smallLinks = new Schema({
@@ -128,7 +127,7 @@ app.get('/:id', function(req, res){
 /**
 
     Code to be used for a regex that would allow for host/URL TO BE SHORTENED in the domain
-    
+
 app.get(/\/users\/(\d*)\/?(edit)?/, function (req, res){
     // /users/10
     // /users/10/

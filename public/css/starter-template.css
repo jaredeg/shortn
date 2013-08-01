@@ -54,6 +54,7 @@ a {
 #source {
   text-align: center;
   height: auto;
+  line-height: auto; 
   font-size: 32px;
 }
 

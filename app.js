@@ -25,6 +25,8 @@ var smallLinks = new Schema({
 });
 
 var Small = mongoose.model('Link', smallLinks);
+
+//Generates salt for hash
 shortId.seed(1625);
 
 // all environment
@@ -62,11 +64,9 @@ app.get('/top', function (req,res){
     Small.find().sort({count: -1}).select({url: 1, count: 1, id: 1}).limit(10).exec(
         function(err, urls) {
             if (err || urls === null){
-                res.send('Error 404')
-             res.send('there was an error');
+                res.send('there was an error');
             } else {
-                res.render('top', { urls: urls, count: urls})
-                console.log(urls);
+                res.render('top', { urls: urls, count: urls});
             }
         }
     );
@@ -127,7 +127,8 @@ app.get('/:id', function(req, res){
 
 /**
 
-
+    Code to be used for a regex that would allow for host/URL TO BE SHORTENED in the domain
+    
 app.get(/\/users\/(\d*)\/?(edit)?/, function (req, res){
     // /users/10
     // /users/10/

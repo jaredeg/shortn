@@ -21,11 +21,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+
 body,
 span,
 input,
 a {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Alegreya', serif;;
 }
 
 a {
@@ -101,7 +102,7 @@ input:focus {
 
 h1 {
   font-size: 70px;
-  font-family: ff-cocon-web-pro, sans-serif;
+  font-family: 'Paytone One', sans-serif;
   font-weight: 400;
   text-align: center;
 
